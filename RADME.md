@@ -11,62 +11,35 @@ Estamos habitando un mundo cada vez más interconectado, sin barreras geografica
 
 - Analizar como ha sido el crecimiento de las telecomunicaciones a lo largo del tiempo.
 
-
-
-- budget	=	El presupuesto de la película, en dólares
-- id	=	ID de la pelicula
-- original_language	=	Idioma original en la que se grabo la pelicula
-- overview	=	Pequeño resumen de la película
-- popularity	=	Puntaje de popularidad de la película, asignado por TMDB (TheMoviesDataBase)
-- release_date	=	Fecha de estreno de la película
-- revenue	=	Recaudación de la pelicula, en dolares
-- runtime	=	Duración de la película, en minutos
-- spoken_languages	=	Lista con los idiomas que se hablan en la pelicula
-- status	=	Estado de la pelicula actual (si fue anunciada, si ya se estreno, etc)
-- tagline	=	Frase celebre asociadaa la pelicula
-- title	=	Titulo de la pelicula
-- vote_average	=	Puntaje promedio de reseñas de la pelicula
-- vote_count	=	Numeros de votos recibidos por la pelicula, en TMDB
-- name	=	Nombre de la franquicia
-- backdrop_path	=	URL de la foto
-- genres_name	=	Lista de generos
-- countries	=	Lista de paises
-- productor	=	Lista de productoras
-- directors	=	Lista de directores
-- release_year	=	Año de creacion
-- return	=	Retorno de la pelicula, obtenido de la division de revenue y budget
-
 ## Desarrollo del Proyecto
 
-## 1. ETL
 
-- Algunos campos, como belongs_to_collection, production_companies y otros (ver diccionario de datos) están anidados, esto es o bien tienen un diccionario o una lista como valores en cada fila, ¡deberán desanidarlos para poder y unirlos al dataset de nuevo hacer alguna de las consultas de la API! O bien buscar la manera de acceder a esos datos sin desanidarlos.
+## 1. EDA
 
-- Los valores nulos de los campos revenue, budget deben ser rellenados por el número 0.
+Una vez realizadas las transformaciones necesarias sobre los dataset que se van a usar, se realiza una exploración de los datos con el fin de entenderlos mejor y poderlos usar de la mejor forma en el dashboard de Powser BI. Para esto, se usan algunas graficas que nos muestran informacion relevante sobre la conectividad en Argentina, tales como:
 
-- Los valores nulos del campo release date deben eliminarse.
+- Analisis estadistico con la cantidad de variables en nuestro dataset.
+- Histograma, donde podemos observar la distribución de la población.
+- un mapa de calor donde relacionamos las variables del dataset
+- un grafico de barras apiladas que nos muestra la cantidad de poblacion que tiene acceso a las diferentes tecnologías.
+- un gráfico de línea que nos permite ver como ha sido el crecimiento de los accesos por cada 100 hogares por trimestre.
+- un grafico circular que nos muestra los tipos de tecnologías mas utilizados.
 
-- De haber fechas, deberán tener el formato AAAA-mm-dd, además deberán crear la columna release_year donde extraerán el año de la fecha de estreno.
+Adicionalmente, en la carpeta PI02 del repositorio se incluyó el EDA automatico que nos provee la libreria pandas_profiling, como información general, sin embargo, el EDA se realizó de forma manual, debido a que los datos que encontramos en los archivos csv no contenian información a profundidad de los temas que estamos analizando._
 
-- Crear la columna con el retorno de inversión, llamada return con los campos revenue y budget, dividiendo estas dos últimas revenue / budget, cuando no hay datos disponibles para calcularlo, deberá tomar el valor 0.
+## 2. Dashboard
 
--  Eliminar las columnas que no serán utilizadas, video,imdb_id,adult,original_title,poster_path y homepage
+Para la presentacion del dashboard se hace uso de la herramienta Power BI, en donde se cargan los archivos que resultaron de la transformación, los cuales se llaman 'conectividad por provincia' y 'penetración'.
 
+Con este dashboard se hace una descripción general de la cobertura de las telecomunicaciones en Argentina, describiendo el comportamiento de los diferentes servicios que se encuentran disponibles.
 
-## 2. EDA
+Adicionalmente, se presenta la tendencia de crecimiento del acceso a internet por cada 100 hogares de manera trimestral.
 
-Se realiza una exploración de los datos ya transformados con el fin de entenderlos mejor y poderlos usar de la mejor forma para el desarrollo de la API. Incluyendo graficas interesantes para la extracción de los datos.
-Nuestro EDA incluye:
--  Vista previa del contenido del dataset
+El dashboard cuenta con la siguiente estructura:
 
-- información general del contenido del dataset (Cantidad y tipos de datos)
+Finalmente, como resultado de este analisis se crean los siguientes KPIs, que le permitiran a la compañia mejorar la cobertura de las telecomunicaciones:
 
-- Análisis estadístico variables cuantitativas
-
-- Análisis estadístico variables cualitativas
-
-- Gráfico de barras de la ganancia por año, tomando los valores de revenue más significativos los cuales están entre los años 1973 y 2017
-
-- Gráfico de dispersión entre las variables Revenue, Budget, popularity y return
-
-- Nube de palabras
+ - Porcentaje de cobertura
+ - Cobertura por año
+ - Indicador de tendencia de crecimiento de Accesos a internet por trimestre
+ - Porcentaje de la población con acceso a internet por cada tecnología.
