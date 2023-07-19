@@ -43,4 +43,4 @@ Finalmente, como resultado de este analisis se crean los siguientes KPIs, que le
  - Porcentaje de la población con acceso a internet por cada tecnología.
 
  ## Vista previa del dashboard
-![Telecomunicaciones en Argentina](imagenes\Dashboard.JPG)
+![Telecomunicaciones en Argentina](imagenes/Dashboard.JPG)
