@@ -43,3 +43,7 @@ Finalmente, como resultado de este analisis se crean los siguientes KPIs, que le
  - Cobertura por año
  - Indicador de tendencia de crecimiento de Accesos a internet por trimestre
  - Porcentaje de la población con acceso a internet por cada tecnología.
+
+ ## Vista previa del dashboard
+![Telecomunicaciones en Argentina](imagenes\Dashboard.JPG)
+
